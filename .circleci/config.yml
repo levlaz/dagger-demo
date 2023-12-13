@@ -11,11 +11,7 @@ jobs:
           command: cd /usr/local && { curl -L https://dl.dagger.io/dagger/install.sh | sudo sh; cd -; }
       - run:
           name: Scan Code References
-          command: | 
-            pwd
-            dagger call --progress=plain -m github.com/levlaz/daggerverse/launchdarkly \
-            find --token $LD_ACCESS_TOKEN --project $LD_PROJ_KEY \
-            --repo $LD_REPO_NAME --directory . 
+          command: dagger -m ci call --progress=plain ci  --token=$LD_ACCESS_TOKEN --dir . 
       - run:
           name: Stop Dagger Engine
           command: docker stop -t 300 $(docker ps --filter name="dagger-engine-*" -q)

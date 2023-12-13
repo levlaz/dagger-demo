@@ -1,0 +1,7 @@
+{
+  "name": "demo",
+  "sdk": "go",
+  "dependencies": [
+    "github.com/levlaz/daggerverse/launchdarkly@f38dfe4f70cb667a984e495aa1740273b7978cb1"
+  ]
+}
